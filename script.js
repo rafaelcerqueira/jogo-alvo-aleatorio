@@ -1,3 +1,4 @@
+//configurando o pincel:
 var screen = document.querySelector('canvas');
 var pincel = screen.getContext('2d');
 
