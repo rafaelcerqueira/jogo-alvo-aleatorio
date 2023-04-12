@@ -50,12 +50,11 @@ function trigger(event) {
     var x = event.pageX - screen.offsetLeft;
     var y = event.pageY - screen.offsetTop;
 
-    if(
-        (x > xRandom - ray)
-        && (x < xRandom + ray)
-        && (y > yRandom - ray)
-        && (y < yRandom + ray)
-    ) {
+    var xRandomTarget = (x > xRandom - ray) && (x < xRandom + ray);
+
+    var yRandomTarget = (y > yRandom - ray) && (y < yRandom + ray);
+
+    if(xRandomTarget && yRandomTarget) {
         alert('Acertou!');
     }
 
