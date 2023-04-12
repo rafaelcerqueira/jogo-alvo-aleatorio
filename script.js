@@ -6,6 +6,8 @@ pincel.fillStyle = 'lightgray';
 pincel.fillRect(0, 0, 600, 400);
 
 var ray = 10;
+var xRandom;
+var yRandom;
 
 function drawCicle(x, y, ray, color) {
     
@@ -36,9 +38,27 @@ function refreshScreen() {
 
     clearScreen();
 
-    var xRandom = rafflePosition(600);
-    var yRandom = rafflePosition(400);
+    xRandom = rafflePosition(600);
+    yRandom = rafflePosition(400);
     drawTarget(xRandom, yRandom);
 }
 
-//setInterval(refreshScreen, 1000);
+setInterval(refreshScreen, 1000);
+
+function trigger(event) {
+    
+    var x = event.pageX - screen.offsetLeft;
+    var y = event.pageY - screen.offsetTop;
+
+    var xRandomTarget = (x > xRandom - ray) && (x < xRandom + ray);
+
+    var yRandomTarget = (y > yRandom - ray) && (y < yRandom + ray);
+
+    if(xRandomTarget && yRandomTarget) {
+        alert('Acertou!');
+    }
+
+
+}
+
+screen.onclick = trigger;
